@@ -16,5 +16,12 @@ class Listing extends Model
             //look in database column tags, display all entries that are like the request tag
             $query->where('tags', 'like', '%' . request('tag') . '%'); //% -> anything can be in front or behind tag in url
         }
+        //if there is no search request, move on
+        if($filters['search'] ?? false) {
+            $query->where('title', 'like', '%' . request('search') . '%')
+                ->orWhere('description', 'like', '%' .  request('search') . '%')
+                ->orWhere('tags', 'like', '%' . request('search') . '%');
+        }
+
     }
 }

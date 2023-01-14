@@ -10,7 +10,7 @@ class ListingController extends Controller
     //Show all listings
     public function index() {
         return view('listings.index', [
-            'listings' => Listing::latest()->filter(request(['tag']))->get() //calls function in Listing Model for filtering by tag with scope filter
+            'listings' => Listing::latest()->filter(request(['tag', 'search']))->get() //calls function in Listing Model for filtering by tag with scope filter
         ]);
     }
 
