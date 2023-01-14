@@ -17,14 +17,6 @@ use App\Models\Listing;
 |
 */
 
-//All Listings
-Route::get('/', [ListingController::class, 'index']);
-
-//Single Listing
-Route::get('/listings/{listing}', [ListingController::class, 'show']);
-
-
-
 //Common Resource Routes:
 //(listing could be any kind of resource)
 //index - show all listings - show whole content
@@ -34,4 +26,14 @@ Route::get('/listings/{listing}', [ListingController::class, 'show']);
 //edit - show form to edit listing - show edit form on page
 //update - update listing - to actually update content (submit edit form to update)
 //destroy - delete listing - to delete content
+
+//All Listings
+Route::get('/', [ListingController::class, 'index']);
+
+//Single Listing
+Route::get('/listings/{listing}', [ListingController::class, 'show']);
+
+
+
+
 
