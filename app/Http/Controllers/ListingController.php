@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Listing;
+use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class ListingController extends Controller
 {
@@ -19,5 +20,29 @@ class ListingController extends Controller
         return view('listings.show', [
             'listing' => $listing
         ]);
+    }
+
+    //Show create job form
+    public function create() {
+        return view('listings.create');
+    }
+
+    //Store new listing
+    public function store(Request $request) { //get request through dependency injection
+        //validation
+        $formFields = $request->validate([
+            'title' => 'required',
+            'company' => ['required', Rule::unique('listings', 'company')], //company name has to be unique
+            'location' => 'required',
+            'website' => 'required',
+            'email' => ['required', 'email'], //has to be formatted like email
+            'tags' => 'required',
+            'description' => 'required'
+        ]); //if any of this fails it is gonna send back an error
+
+        //create in database
+        Listing::create($formFields); //formFields contains all of our data
+
+        return redirect('/');
     }
 }
