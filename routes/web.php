@@ -23,6 +23,8 @@ Route::get('/', [ListingController::class, 'index']);
 //Single Listing
 Route::get('/listings/{listing}', [ListingController::class, 'show']);
 
+
+
 //Common Resource Routes:
 //(listing could be any kind of resource)
 //index - show all listings - show whole content
