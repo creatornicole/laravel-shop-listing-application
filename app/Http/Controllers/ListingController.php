@@ -41,8 +41,8 @@ class ListingController extends Controller
         ]); //if any of this fails it is gonna send back an error
 
         //create in database
-        Listing::create($formFields); //formFields contains all of our data
+        Listing::create($formFields); //formFields contains all of our data      
 
-        return redirect('/');
+        return redirect('/')->with('message', 'Listing created successfully!'); //with flash message
     }
 }

@@ -61,6 +61,9 @@
                 >Post Job</a
             >
         </footer>
+
+        <!-- flash message compontent -> position in code does not matter since its position is fixed -->
+        <x-flash-message />
     </body>
 </html>
 
