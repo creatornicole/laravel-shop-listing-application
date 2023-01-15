@@ -42,6 +42,9 @@ Route::get('/listings/{listing}/edit', [ListingController::class, 'edit']);
 //Update Listing
 Route::put('/listings/{listing}', [ListingController::class, 'update']);
 
+//Delete Listing
+Route::delete('/listings/{listing}', [ListingController::class, 'destroy']);
+
 //Single Listing
 //Should be at the bottom - otherwise: possible that that throws errors
 Route::get('/listings/{listing}', [ListingController::class, 'show']);

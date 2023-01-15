@@ -82,4 +82,10 @@ class ListingController extends Controller
         $listing->update($formFields); //formFields contains all of our data      
         return back()->with('message', 'Listing updated successfully!'); //with flash message
     } 
+
+    //Delete Listing
+    public function destroy(Listing $listing) {
+        $listing->delete();
+        return redirect('/')->with('message', 'Listing deleted successfully!');
+    }
 }
