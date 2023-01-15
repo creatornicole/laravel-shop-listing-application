@@ -38,7 +38,15 @@ class ListingController extends Controller
             'email' => ['required', 'email'], //has to be formatted like email
             'tags' => 'required',
             'description' => 'required'
-        ]); //if any of this fails it is gonna send back an error
+        ]); //if any of this fails it is gonna send back an error (@error in create file)
+
+        //check if logo is uploaded
+        if($request->hasFile('logo')) {
+            //add to form field
+            //set to path and upload at the same time
+            $formFields['logo'] = $request->file('logo')->store('logos', 'public'); //create folder logos in storage/app/public
+        }
+
 
         //create in database
         Listing::create($formFields); //formFields contains all of our data      

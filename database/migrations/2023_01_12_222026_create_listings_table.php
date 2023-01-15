@@ -18,6 +18,7 @@ return new class extends Migration
         Schema::create('listings', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->string('logo')->nullable(); //will be the file path to the image, nullable() -> can be null
             $table->string('tags');
             $table->string('company');
             $table->string('location');
