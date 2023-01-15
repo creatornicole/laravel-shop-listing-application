@@ -45,6 +45,14 @@
                         Manage Listings</a
                     >
                 </li>
+                <li>
+                    <form class="inline" method="post" action="/logout">
+                        @csrf
+                        <button type="submit">
+                            <i class="fa-solid fa-door-open"></i> Logout
+                        </button>
+                    </form>
+                </li>
                 @else <!-- if not logged in, show register and login options -->
 
                 <li>
